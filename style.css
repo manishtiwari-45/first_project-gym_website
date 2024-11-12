@@ -1,22 +1,33 @@
+
 body {
-    font-family: 'Baloo Bhai','cursive';
-    color: white;
+    font-family: 'Baloo Bhai', 'cursive';
+    color: var(--text-color);
     margin: 0;
     padding: 0;
-    background:#121d21
+    background: var(--main-bg-color);
 }
+
+.left, .right, .container, .navbar li a {
+    font-family: inherit;
+}
+
 .left {
-    font-family: 'Baloo Bhai','cursive';
     display: inline-block;
     position: absolute;
     left: 34px;
     top: 20px;
 }
+
+.left img {
+    width: 60px;
+    border: 2px solid var(--accent-color);
+    border-radius: 50%;
+}
+
 .btn {
-    font-family: 'Baloo Bhai','cursive';
-    color: white;
-    background-color: #334b54;
-    margin: 0px 9px;
+    color: var(--text-color);
+    background-color: var(--button-bg);
+    margin: 0 9px;
     padding: 4px 14px;
     border: 2px solid grey;
     border-radius: 10px;
@@ -24,65 +35,131 @@ body {
     cursor: pointer;
 }
 
-.left img {
-    width: 60px;
-    border: #dc2111;
-    border-radius: 50%;
-}
 .mid {
     display: block;
     width: 50%;
     margin: 10px auto;
 }
+
 .right {
     display: inline-block;
     position: absolute;
     right: 34px;
     top: 25px;
 }
+
 .navbar {
     display: inline-block;
 }
+
 .navbar li {
     display: inline-block;
     font-size: 25px;
 }
 
 .navbar li a {
-    color: white;
+    color: var(--text-color);
     text-decoration: none;
     padding: 34px 23px;
+    transition: color 0.3s, text-decoration 0.3s;
 }
-.navbar li a:hover, .navbar li a.active{
+
+.navbar li a:hover,
+.navbar li a.active {
     text-decoration: underline;
-    color: #dc2111;
+    color: var(--accent-color);
 }
+
 .container {
     margin: auto;
-    padding: 75px 75px;
-    width: 33%;
+    padding: 50px 20px;
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
 }
+:root {
+    --main-bg-color: #121d21;
+    --accent-color: #dc2111;
+    --button-bg: #334b54;
+    --button-hover: rgb(17, 104, 217);
+    --text-color: white;
+}
+
+
 .form-group input {
-    font-family: 'Baloo Bhai','cursive';
     text-align: center;
     display: block;
-    width: 440px;
-    padding: 1px;
+    width: 100%;
+    max-width: 440px;
+    padding: 8px;
     border: 2px solid black;
     border-radius: 8px;
     margin: 12px auto;
-    font-size: 25px;
+    font-size: 20px;
 }
-.container h1{
+
+.container h1 {
     text-align: center;
 }
 
 .container button {
     display: block;
-    width: 23%;
-    margin-left: 1px;
+    width: 60%;
     margin: 20px auto;
+    background-color: var(--button-bg);
+    color: var(--text-color);
+    border: none;
+    border-radius: 8px;
+    padding: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
+
 .container button:hover {
-    background-color: rgb(17, 104, 217);
+    background-color: var(--button-hover);
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .left, .right {
+        position: static;
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .navbar {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0;
+    }
+
+    .navbar li {
+        display: block;
+        margin: 10px 0;
+        font-size: 20px;
+    }
+
+    .navbar li a {
+        padding: 10px;
+    }
+
+    .btn {
+        font-size: 16px;
+        padding: 6px 12px;
+    }
+
+    .form-group input {
+        font-size: 18px;
+    }
+
+    .container button {
+        width: 80%;
+        font-size: 18px;
+        padding: 10px;
+    }
+
+    .container h1 {
+        font-size: 24px;
+    }
 }
